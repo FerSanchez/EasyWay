@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+from django.contrib.auth.models import User
 # Create your models here.
 class Dificultad(models.Model):
     dificultad= models.CharField(max_length=120)
@@ -16,12 +17,18 @@ class Categoria(models.Model):
     creada = models.DateTimeField(auto_now=False, auto_now_add=True,null=True,blank=True)
     def __str__(self):
         return self.categoria
+#no estoy seguro de que sea haci#
+class Usuarios(models.Model):
+    usuario = models.OneToOneField(User)
+    def __str__(self):
+        return self.usuario
 
 class Post(models.Model):
     title=models.CharField(max_length=120)
-    dificultad = models.ForeignKey(Dificultad,null=True,blank=True);
-    categoria=models.ForeignKey(Categoria,null=True,blank=True);
+    dificultad = models.ForeignKey(Dificultad,null=True,blank=True)
+    categoria=models.ForeignKey(Categoria,null=True,blank=True)
     media=models.FileField(null=True,blank=True)
+    usuario=models.OneToOneField(Usuarios,null=True,blank=True)#esto no me funciona correctamente
     descripcion=models.CharField(max_length=15000)
     actualizado = models.DateTimeField(auto_now=True, auto_now_add=False)
     creado = models.DateTimeField(auto_now=False, auto_now_add=True)
