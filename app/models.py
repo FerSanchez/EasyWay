@@ -7,17 +7,17 @@ from django.contrib.auth.models import User
 class Dificultad(models.Model):
     dificultad= models.CharField(max_length=120)
     descripcion=models.TextField()
-    creada = models.DateTimeField(auto_now=False, auto_now_add=True,null=True,blank=True)
+    # creada = models.DateTimeField(auto_now=False, auto_now_add=True,null=True,blank=True)
     def __str__(self):
         return self.dificultad
 
 class Categoria(models.Model):
     categoria= models.CharField(max_length=120)
     descripcion=models.TextField()
-    creada = models.DateTimeField(auto_now=False, auto_now_add=True,null=True,blank=True)
+    # creada = models.DateTimeField(auto_now=False, auto_now_add=True,null=True,blank=True)
     def __str__(self):
         return self.categoria
-#no estoy seguro de que sea haci#
+
 
 class Post(models.Model):
     title=models.CharField(max_length=120)
