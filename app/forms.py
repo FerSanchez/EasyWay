@@ -15,3 +15,17 @@ class CategoriaForm(forms.ModelForm):
         "categoria",
         "descripcion",
         ]
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model=Post
+        fields=[
+        "title",
+        "dificultad",
+        "categoria",
+        "media",
+        "usuario",
+        "descripcion",
+        "actualizado",
+        "creado",        
+        ]
